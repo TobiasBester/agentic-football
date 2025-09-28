@@ -3,6 +3,8 @@ package org.coolandfunandnice.matchengine.factory;
 import org.coolandfunandnice.common.enums.Position;
 import org.coolandfunandnice.matchengine.Match;
 import org.coolandfunandnice.matchengine.MatchSetup;
+import org.coolandfunandnice.matchengine.environment.Ball;
+import org.coolandfunandnice.matchengine.environment.Pitch;
 import org.coolandfunandnice.matchengine.player.Player;
 import org.coolandfunandnice.matchengine.player.factory.PlayerFactory;
 
@@ -31,14 +33,18 @@ public class MatchFactory {
                 ),
                 List.of(
                         PlayerFactory.createRandomPlayer(Position.GOALKEEPER)
-                )
+                ),
+                Pitch.standard(),
+                Ball.standard()
         );
     }
 
     private static MatchSetup createMultiPlayerDefaultMatchSetup(int numPlayersPerTeam) {
         return new MatchSetup(
                 createDefaultPlayers(numPlayersPerTeam),
-                createDefaultPlayers(numPlayersPerTeam)
+                createDefaultPlayers(numPlayersPerTeam),
+                Pitch.standard(),
+                Ball.standard()
         );
     }
 

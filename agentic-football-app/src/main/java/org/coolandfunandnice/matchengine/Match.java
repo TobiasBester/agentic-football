@@ -1,23 +1,32 @@
 package org.coolandfunandnice.matchengine;
 
-import org.coolandfunandnice.matchengine.player.Player;
+import org.coolandfunandnice.matchengine.environment.MatchBallOperator;
 
-import java.util.List;
-
-public record Match(List<Player> homePlayers, List<Player> awayPlayers) {
+public record Match(MatchSetup matchSetup, MatchBallOperator ballOperator) {
 
     public static Match createDefaultMatch(MatchSetup setup) {
-        return new Match(setup.homePlayers(), setup.awayPlayers());
+        return new Match(setup, MatchBallOperator.fromMatchSetup(setup));
+    }
+
+    public void resetMatch() {
+        ballOperator.reset();
+    }
+
+    public void printDetailedMatchState() {
+        ballOperator.printDetailedBallPosition();
     }
 
     public void printMatchSetup() {
         IO.println("Match setup");
 
         IO.println("Home Players:");
-        homePlayers.forEach(player -> IO.println(player.toString()));
+        matchSetup.homePlayers().forEach(player -> IO.println(player.toString()));
 
         IO.println("Away Players:");
-        awayPlayers.forEach(player -> IO.println(player.toString()));
+        matchSetup.awayPlayers().forEach(player -> IO.println(player.toString()));
+
+        IO.println("Pitch:");
+        IO.println(matchSetup.pitch().toString());
     }
 
 }

@@ -1,0 +1,28 @@
+package org.coolandfunandnice.matchengine.environment;
+
+import org.coolandfunandnice.common.enums.Coordinate;
+
+public class MatchBall {
+    private final Ball ball;
+    private Coordinate coordinate = Coordinate.ZERO;
+
+    public MatchBall(Ball ball) {
+        this.ball = ball;
+    }
+
+    public static MatchBall createDefault() {
+        return new MatchBall(Ball.standard());
+    }
+
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
+
+    public void setCoordinate(Coordinate coordinate) {
+        this.coordinate = coordinate;
+    }
+
+    public Ball getBall() {
+        return ball;
+    }
+}

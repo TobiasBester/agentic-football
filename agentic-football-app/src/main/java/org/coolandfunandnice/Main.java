@@ -13,5 +13,8 @@ public class Main {
 
         Match defaultMatch = MatchFactory.createDefaultMatch(1);
         defaultMatch.printMatchSetup();
+
+        defaultMatch.resetMatch();
+        defaultMatch.printDetailedMatchState();
     }
 }
