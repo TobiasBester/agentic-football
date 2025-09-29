@@ -5,6 +5,9 @@ import org.coolandfunandnice.matchengine.environment.MatchBallOperator;
 import org.coolandfunandnice.matchengine.team.MatchTeam;
 import org.coolandfunandnice.matchengine.team.MatchTeamOperator;
 
+/**
+ * Container for all match-related objects.
+ */
 public class Match {
 
     // 3 types of objects:
