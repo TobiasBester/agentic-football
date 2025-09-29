@@ -1,6 +1,7 @@
 package org.coolandfunandnice.matchengine.team.factory;
 
 import org.coolandfunandnice.common.enums.Position;
+import org.coolandfunandnice.common.random.RandomFactory;
 import org.coolandfunandnice.matchengine.player.PlayerInfo;
 import org.coolandfunandnice.matchengine.player.factory.PlayerFactory;
 import org.coolandfunandnice.matchengine.team.TeamInfo;
@@ -34,11 +35,11 @@ public class TeamFactory {
     }
 
     private static String generateRandomTeamName() {
-        return "Team_" + Math.round(Math.random() * 10000);
+        return "Team_" + Math.round(RandomFactory.getInstance().createNewRandom().nextDouble() * 10000);
     }
 
     private static String generateRandomCoachName() {
-        return "Coach_" + Math.round(Math.random() * 10000);
+        return "Coach_" + Math.round(RandomFactory.getInstance().createNewRandom().nextDouble() * 10000);
     }
 
 }

@@ -1,6 +1,6 @@
 package org.coolandfunandnice.matchengine.environment;
 
-import org.coolandfunandnice.common.enums.Coordinate;
+import org.coolandfunandnice.common.Coordinate;
 
 public class MatchBall implements PitchEntity {
     private final Ball ball;

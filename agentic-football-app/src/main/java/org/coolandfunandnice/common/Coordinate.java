@@ -1,4 +1,4 @@
-package org.coolandfunandnice.common.enums;
+package org.coolandfunandnice.common;
 
 public record Coordinate(double x, double y) {
     public static final Coordinate ZERO = new Coordinate(0.0, 0.0);

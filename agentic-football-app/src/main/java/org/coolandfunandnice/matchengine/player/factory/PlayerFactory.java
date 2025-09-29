@@ -1,6 +1,7 @@
 package org.coolandfunandnice.matchengine.player.factory;
 
 import org.coolandfunandnice.common.enums.Position;
+import org.coolandfunandnice.common.random.RandomFactory;
 import org.coolandfunandnice.matchengine.player.PlayerInfo;
 import org.coolandfunandnice.matchengine.player.attribute.factory.PlayerAttributeFactory;
 
@@ -12,7 +13,7 @@ public class PlayerFactory {
     }
 
     private static String generateRandomName() {
-        return "Player_" + Math.round(Math.random() * 10000);
+        return "Player_" + Math.round(RandomFactory.getInstance().createNewRandom().nextDouble() * 10000);
     }
 
 }

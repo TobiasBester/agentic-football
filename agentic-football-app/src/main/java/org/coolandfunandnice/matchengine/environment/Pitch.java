@@ -1,6 +1,6 @@
 package org.coolandfunandnice.matchengine.environment;
 
-import org.coolandfunandnice.common.enums.Coordinate;
+import org.coolandfunandnice.common.Coordinate;
 
 public record Pitch(double lengthMeters, double widthMeters, Goalpost goalpost) {
     public static Pitch standard() {

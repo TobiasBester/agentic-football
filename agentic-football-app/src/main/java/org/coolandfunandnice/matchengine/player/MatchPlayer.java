@@ -1,6 +1,6 @@
 package org.coolandfunandnice.matchengine.player;
 
-import org.coolandfunandnice.common.enums.Coordinate;
+import org.coolandfunandnice.common.Coordinate;
 import org.coolandfunandnice.matchengine.environment.Pitch;
 import org.coolandfunandnice.matchengine.environment.PitchEntity;
 

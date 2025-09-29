@@ -1,5 +1,6 @@
 package org.coolandfunandnice.matchengine.player.attribute.factory;
 
+import org.coolandfunandnice.common.random.RandomFactory;
 import org.coolandfunandnice.matchengine.player.attribute.PlayerAttribute;
 import org.coolandfunandnice.matchengine.player.attribute.PlayerAttributeKey;
 import org.coolandfunandnice.matchengine.player.attribute.PlayerAttributeSet;
@@ -26,7 +27,7 @@ public class PlayerAttributeFactory {
     }
 
     private static PlayerAttributeValue getRandomValue() {
-        final var random = new Random();
+        final var random = RandomFactory.getInstance().createNewRandom();
         final var value = random.nextDouble() * 100d;
         final var twoDecimalValue = Math.round(value * 100d) / 100d;
         final var normalizedValue = twoDecimalValue / 100d;

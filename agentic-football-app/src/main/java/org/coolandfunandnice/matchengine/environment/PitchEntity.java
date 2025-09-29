@@ -1,6 +1,6 @@
 package org.coolandfunandnice.matchengine.environment;
 
-import org.coolandfunandnice.common.enums.Coordinate;
+import org.coolandfunandnice.common.Coordinate;
 
 public interface PitchEntity {
     Coordinate getPitchEntityCoordinate();
