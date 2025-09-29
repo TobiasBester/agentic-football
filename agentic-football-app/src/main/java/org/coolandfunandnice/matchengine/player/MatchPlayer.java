@@ -4,7 +4,7 @@ import org.coolandfunandnice.common.Coordinate;
 import org.coolandfunandnice.matchengine.environment.Pitch;
 import org.coolandfunandnice.matchengine.environment.PitchEntity;
 
-public class MatchPlayer implements PitchEntity {
+public class MatchPlayer implements PitchEntity, Comparable<MatchPlayer> {
 
     private final PlayerInfo playerInfo;
     private final Pitch pitch;
@@ -45,5 +45,10 @@ public class MatchPlayer implements PitchEntity {
     @Override
     public String getLabel() {
         return "MatchPlayer";
+    }
+
+    @Override
+    public int compareTo(MatchPlayer o) {
+        return this.playerInfo.compareTo(o.playerInfo);
     }
 }

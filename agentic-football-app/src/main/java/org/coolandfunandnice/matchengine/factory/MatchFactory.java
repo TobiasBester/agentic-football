@@ -12,12 +12,7 @@ import org.coolandfunandnice.matchengine.team.factory.TeamFactory;
 
 public class MatchFactory {
 
-    public static Match createRandomMatch(int numPlayersPerTeam) {
-        if (numPlayersPerTeam < 1) {
-            throw new IllegalArgumentException("Number of players per team must be at least 1");
-        }
-
-        final var matchInfo = createRandomMatchInfo(numPlayersPerTeam);
+    public static Match createMatch(MatchInfo matchInfo) {
         final var pitch = matchInfo.pitch();
         final var matchBall = new MatchBall(matchInfo.ball());
         final var homeTeam = MatchTeam.fromTeamInfo(matchInfo.homeTeamInfo(), matchInfo);
@@ -28,8 +23,22 @@ public class MatchFactory {
         return new Match(matchInfo, matchBall, homeTeam, awayTeam, ballOperator, homeTeamOperator, awayTeamOperator);
     }
 
+    public static Match createRandomMatch(int numPlayersPerTeam) {
+        if (numPlayersPerTeam < 1) {
+            throw new IllegalArgumentException("Number of players per team must be at least 1");
+        }
+
+        final var matchInfo = createRandomMatchInfo(numPlayersPerTeam);
+        return createMatch(matchInfo);
+    }
+
+    public static Match createRandom5v5Match() {
+        return createRandomMatch(5);
+    }
+
     private static MatchInfo createRandomMatchInfo(int numPlayersPerTeam) {
         return new MatchInfo(
+                numPlayersPerTeam,
                 TeamFactory.createRandomTeamInfo(numPlayersPerTeam),
                 TeamFactory.createRandomTeamInfo(numPlayersPerTeam),
                 Pitch.standard(),

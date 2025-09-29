@@ -11,10 +11,10 @@ public class Main {
         // to see how IntelliJ IDEA suggests fixing it.
         IO.println("Hello and welcome to Agentic Football!");
 
-        Match defaultMatch = MatchFactory.createRandomMatch(1);
-        defaultMatch.printMatchInfo();
+        Match match = MatchFactory.createRandom5v5Match();
+        match.printMatchInfo();
 
-        defaultMatch.reset();
-        defaultMatch.printDetailedMatchState();
+        match.reset();
+        match.printDetailedMatchState();
     }
 }

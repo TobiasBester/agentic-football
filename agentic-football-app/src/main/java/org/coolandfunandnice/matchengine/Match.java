@@ -49,13 +49,12 @@ public class Match {
         IO.println("Ball info:");
         IO.println(matchBall.getBall().toString());
 
-        IO.println("Home Players:");
-        matchInfo.homeTeamInfo().players().forEach(player -> IO.println(player.toString()));
+        IO.println("Home Team:");
+        IO.println(matchInfo.homeTeamInfo().toString());
 
-        IO.println("Away Players:");
-        matchInfo.awayTeamInfo().players().forEach(player -> IO.println(player.toString()));
+        IO.println("Away Team:");
+        IO.println(matchInfo.awayTeamInfo().toString());
 
-        IO.println("Pitch:");
         IO.println(matchInfo.pitch().toString());
     }
 
