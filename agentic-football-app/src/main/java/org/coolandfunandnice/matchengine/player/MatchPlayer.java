@@ -41,4 +41,9 @@ public class MatchPlayer implements PitchEntity {
     public void setPitchEntityCoordinate(Coordinate coordinate) {
         this.positionOnPitch = coordinate;
     }
+
+    @Override
+    public String getLabel() {
+        return "MatchPlayer";
+    }
 }

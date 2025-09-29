@@ -35,4 +35,9 @@ public class MatchBall implements PitchEntity {
     public void setPitchEntityCoordinate(Coordinate coordinate) {
         this.coordinate = coordinate;
     }
+
+    @Override
+    public String getLabel() {
+        return "MatchBall";
+    }
 }

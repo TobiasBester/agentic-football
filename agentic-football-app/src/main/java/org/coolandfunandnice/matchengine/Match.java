@@ -33,16 +33,21 @@ public class Match {
         this.awayTeamOperator = awayTeamOperator;
     }
 
-    public void resetMatch() {
+    public void reset() {
         ballOperator.reset();
+        homeTeamOperator.reset();
+        awayTeamOperator.reset();
     }
 
     public void printDetailedMatchState() {
-        matchBall.printDetailedBallPosition(matchInfo.pitch());
+        matchBall.printDetailedEntityPosition(matchInfo.pitch());
     }
 
     public void printMatchInfo() {
         IO.println("Match setup");
+
+        IO.println("Ball info:");
+        IO.println(matchBall.getBall().toString());
 
         IO.println("Home Players:");
         matchInfo.homeTeamInfo().players().forEach(player -> IO.println(player.toString()));

@@ -14,7 +14,7 @@ public class MatchFactoryTest {
         // Smoke-test: ensure public methods don't throw
         match.printMatchInfo();
         match.printDetailedMatchState();
-        match.resetMatch();
+        match.reset();
     }
 
     @Test

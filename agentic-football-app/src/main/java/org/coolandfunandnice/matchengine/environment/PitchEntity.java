@@ -7,6 +7,8 @@ public interface PitchEntity {
 
     void setPitchEntityCoordinate(Coordinate coordinate);
 
+    String getLabel();
+
     default void move(double deltaX, double deltaY) {
         Coordinate current = getPitchEntityCoordinate();
         if (current != null) {
@@ -18,18 +20,22 @@ public interface PitchEntity {
 
     default String getPitchRelativePositionString(Pitch pitch) {
         final var entityCoord = getPitchEntityCoordinate();
-        final var ballInsidePitch = pitch.isInsidePitch(entityCoord);
-        final var ballInsideStartGoal = pitch.isInsideStartGoal(entityCoord);
-        final var ballInsideEndGoal = pitch.isInsideEndGoal(entityCoord);
-        final var ballDistanceToStartGoal = pitch.distanceToStartGoal(entityCoord);
-        final var ballDistanceToEndGoal = pitch.distanceToEndGoal(entityCoord);
-        return String.format("Ball Position: (x=%.2f, y=%.2f), InsidePitch=%b, InsideStartGoal=%b, InsideEndGoal=%b, DistanceToStartGoal=%.2f, DistanceToEndGoal=%.2f",
+        if (entityCoord == null) {
+            return String.format("%s: (unplaced)", getLabel());
+        }
+        final var entityInsidePitch = pitch.isInsidePitch(entityCoord);
+        final var entityInsideStartGoal = pitch.isInsideStartGoal(entityCoord);
+        final var entityInsideEndGoal = pitch.isInsideEndGoal(entityCoord);
+        final var entityDistanceToStartGoal = pitch.distanceToStartGoal(entityCoord);
+        final var entityDistanceToEndGoal = pitch.distanceToEndGoal(entityCoord);
+        return String.format("%s: (x=%.2f, y=%.2f), InsidePitch=%b, InsideStartGoal=%b, InsideEndGoal=%b, DistanceToStartGoal=%.2f, DistanceToEndGoal=%.2f",
+                getLabel(),
                 entityCoord.x(), entityCoord.y(),
-                ballInsidePitch, ballInsideStartGoal, ballInsideEndGoal,
-                ballDistanceToStartGoal, ballDistanceToEndGoal);
+                entityInsidePitch, entityInsideStartGoal, entityInsideEndGoal,
+                entityDistanceToStartGoal, entityDistanceToEndGoal);
     }
 
-    default void printDetailedBallPosition(Pitch pitch) {
+    default void printDetailedEntityPosition(Pitch pitch) {
         IO.println(getPitchRelativePositionString(pitch));
     }
 }

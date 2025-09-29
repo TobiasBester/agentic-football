@@ -14,7 +14,7 @@ public class Main {
         Match defaultMatch = MatchFactory.createRandomMatch(1);
         defaultMatch.printMatchInfo();
 
-        defaultMatch.resetMatch();
+        defaultMatch.reset();
         defaultMatch.printDetailedMatchState();
     }
 }
