@@ -11,8 +11,8 @@ public class Main {
         // to see how IntelliJ IDEA suggests fixing it.
         IO.println("Hello and welcome to Agentic Football!");
 
-        Match defaultMatch = MatchFactory.createDefaultMatch(1);
-        defaultMatch.printMatchSetup();
+        Match defaultMatch = MatchFactory.createRandomMatch(1);
+        defaultMatch.printMatchInfo();
 
         defaultMatch.resetMatch();
         defaultMatch.printDetailedMatchState();

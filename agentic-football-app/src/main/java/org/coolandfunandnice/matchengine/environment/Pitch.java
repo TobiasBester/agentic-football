@@ -35,37 +35,33 @@ public record Pitch(double lengthMeters, double widthMeters, Goalpost goalpost) 
         return new Coordinate(lengthMeters / 2, widthMeters / 2);
     }
 
-    public boolean ballIsInsidePitch(MatchBall matchBall) {
-        final var coordinate = matchBall.getCoordinate();
+    public boolean isInsidePitch(Coordinate coordinate) {
         return coordinate.x() >= 0 && coordinate.x() <= lengthMeters
                 && coordinate.y() >= 0 && coordinate.y() <= widthMeters;
     }
 
-    public boolean ballIsInsideStartGoal(MatchBall matchBall) {
-        final var coordinate = matchBall.getCoordinate();
+    public boolean isInsideStartGoal(Coordinate coordinate) {
         return coordinate.x() < 0 &&
                 (coordinate.y() > getStartGoalpostRightCoord().y() && coordinate.y() < getStartGoalpostLeftCoord().y());
     }
 
-    public boolean ballIsInsideEndGoal(MatchBall matchBall) {
-        final var coordinate = matchBall.getCoordinate();
+    public boolean isInsideEndGoal(Coordinate coordinate) {
         return coordinate.x() > lengthMeters &&
                 (coordinate.y() > getEndGoalpostLeftCoord().y() && coordinate.y() < getEndGoalpostRightCoord().y());
     }
 
-    public double distanceFromCenter(MatchBall matchBall) {
-        final var center = getCenter();
-        return matchBall.getCoordinate().distanceTo(center);
+    public double distanceFromCenter(Coordinate coordinate) {
+        return coordinate.distanceTo(getCenter());
     }
 
-    public double distanceToStartGoal(MatchBall matchBall) {
+    public double distanceToStartGoal(Coordinate coordinate) {
         final var startGoalCenter = getStartGoalpostCenterCoord();
-        return matchBall.getCoordinate().distanceTo(startGoalCenter);
+        return coordinate.distanceTo(startGoalCenter);
     }
 
-    public double distanceToEndGoal(MatchBall matchBall) {
+    public double distanceToEndGoal(Coordinate coordinate) {
         final var endGoalCenter = getEndGoalpostCenterCoord();
-        return matchBall.getCoordinate().distanceTo(endGoalCenter);
+        return coordinate.distanceTo(endGoalCenter);
     }
 
     @Override

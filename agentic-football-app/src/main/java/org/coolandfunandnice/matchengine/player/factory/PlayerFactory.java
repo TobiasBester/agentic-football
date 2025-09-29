@@ -1,14 +1,14 @@
 package org.coolandfunandnice.matchengine.player.factory;
 
 import org.coolandfunandnice.common.enums.Position;
-import org.coolandfunandnice.matchengine.player.Player;
+import org.coolandfunandnice.matchengine.player.PlayerInfo;
 import org.coolandfunandnice.matchengine.player.attribute.factory.PlayerAttributeFactory;
 
 public class PlayerFactory {
 
-    public static Player createRandomPlayer(Position position) {
+    public static PlayerInfo createRandomPlayer(Position position) {
         final var playerAttributeSet = PlayerAttributeFactory.createRandomAttributeSet();
-        return new Player(generateRandomName(), position, playerAttributeSet);
+        return new PlayerInfo(generateRandomName(), position, playerAttributeSet);
     }
 
     private static String generateRandomName() {

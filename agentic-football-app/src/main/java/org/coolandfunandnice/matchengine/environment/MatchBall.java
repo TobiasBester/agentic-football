@@ -2,7 +2,7 @@ package org.coolandfunandnice.matchengine.environment;
 
 import org.coolandfunandnice.common.enums.Coordinate;
 
-public class MatchBall {
+public class MatchBall implements PitchEntity {
     private final Ball ball;
     private Coordinate coordinate = Coordinate.ZERO;
 
@@ -24,5 +24,15 @@ public class MatchBall {
 
     public Ball getBall() {
         return ball;
+    }
+
+    @Override
+    public Coordinate getPitchEntityCoordinate() {
+        return coordinate;
+    }
+
+    @Override
+    public void setPitchEntityCoordinate(Coordinate coordinate) {
+        this.coordinate = coordinate;
     }
 }
