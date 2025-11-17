@@ -1,5 +1,7 @@
 package org.coolandfunandnice.matchengine.factory;
 
+import org.coolandfunandnice.common.enums.HomeOrAway;
+import org.coolandfunandnice.common.enums.PitchSide;
 import org.coolandfunandnice.matchengine.Match;
 import org.coolandfunandnice.matchengine.MatchInfo;
 import org.coolandfunandnice.matchengine.environment.Ball;
@@ -15,8 +17,8 @@ public class MatchFactory {
     public static Match createMatch(MatchInfo matchInfo) {
         final var pitch = matchInfo.pitch();
         final var matchBall = new MatchBall(matchInfo.ball());
-        final var homeTeam = MatchTeam.fromTeamInfo(matchInfo.homeTeamInfo(), matchInfo);
-        final var awayTeam = MatchTeam.fromTeamInfo(matchInfo.awayTeamInfo(), matchInfo);
+        final var homeTeam = MatchTeam.fromTeamInfo(matchInfo.homeTeamInfo(), HomeOrAway.HOME, PitchSide.L_TO_R, matchInfo);
+        final var awayTeam = MatchTeam.fromTeamInfo(matchInfo.awayTeamInfo(), HomeOrAway.AWAY, PitchSide.R_TO_L, matchInfo);
         final var ballOperator = new MatchBallOperator(matchBall, pitch);
         final var homeTeamOperator = MatchTeamOperator.fromMatchTeam(homeTeam, matchBall, matchInfo);
         final var awayTeamOperator = MatchTeamOperator.fromMatchTeam(awayTeam, matchBall, matchInfo);

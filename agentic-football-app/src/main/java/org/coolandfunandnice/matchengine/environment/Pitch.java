@@ -8,11 +8,11 @@ public record Pitch(double lengthMeters, double widthMeters, Goalpost goalpost) 
     }
 
     public Coordinate getStartGoalpostLeftCoord() {
-        return new Coordinate(0, widthMeters + (goalpost.xWidthMeters() / 2));
+        return new Coordinate(0, widthMeters + (goalpost.yWidthMeters() / 2));
     }
 
     public Coordinate getStartGoalpostRightCoord() {
-        return new Coordinate(0, widthMeters - (goalpost.xWidthMeters() / 2));
+        return new Coordinate(0, widthMeters - (goalpost.yWidthMeters() / 2));
     }
 
     public Coordinate getStartGoalpostCenterCoord() {
@@ -20,11 +20,11 @@ public record Pitch(double lengthMeters, double widthMeters, Goalpost goalpost) 
     }
 
     public Coordinate getEndGoalpostLeftCoord() {
-        return new Coordinate(lengthMeters, widthMeters + (goalpost.xWidthMeters() / 2));
+        return new Coordinate(lengthMeters, widthMeters + (goalpost.yWidthMeters() / 2));
     }
 
     public Coordinate getEndGoalpostRightCoord() {
-        return new Coordinate(lengthMeters, widthMeters - (goalpost.xWidthMeters() / 2));
+        return new Coordinate(lengthMeters, widthMeters - (goalpost.yWidthMeters() / 2));
     }
 
     public Coordinate getEndGoalpostCenterCoord() {

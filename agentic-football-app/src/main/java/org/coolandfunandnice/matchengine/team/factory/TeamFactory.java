@@ -21,6 +21,15 @@ public class TeamFactory {
         );
     }
 
+    public static TeamInfo createRandomTeamInfo(int numDefenders, int numMidfielders, int numForwards) {
+        final var players = createRandomPlayerInfos(numDefenders, numMidfielders, numForwards);
+        return new TeamInfo(
+                generateRandomTeamName(),
+                generateRandomCoachName(),
+                players
+        );
+    }
+
     private static List<PlayerInfo> createRandomPlayerInfos(int numPlayers) {
         final var players = new ArrayList<PlayerInfo>();
         players.add(PlayerFactory.createRandomPlayer(Position.GOALKEEPER));
@@ -32,6 +41,34 @@ public class TeamFactory {
         }
 
         return players;
+    }
+
+    private static List<PlayerInfo> createRandomPlayerInfos(int numGoalkeepers,
+                                                            int numDefenders,
+                                                            int numMidfielders,
+                                                            int numForwards) {
+        final var players = new ArrayList<PlayerInfo>();
+
+        players.addAll(IntStream.range(0, numGoalkeepers)
+                .mapToObj(i -> PlayerFactory.createRandomPlayer(Position.GOALKEEPER))
+                .toList());
+        players.addAll(IntStream.range(0, numDefenders)
+                .mapToObj(i -> PlayerFactory.createRandomPlayer(Position.DEFENDER))
+                .toList());
+        players.addAll(IntStream.range(0, numMidfielders)
+                .mapToObj(i -> PlayerFactory.createRandomPlayer(Position.MIDFIELDER))
+                .toList());
+        players.addAll(IntStream.range(0, numForwards)
+                .mapToObj(i -> PlayerFactory.createRandomPlayer(Position.FORWARD))
+                .toList());
+
+        return players;
+    }
+
+    private static List<PlayerInfo> createRandomPlayerInfos(int numDefenders,
+                                                            int numMidfielders,
+                                                            int numForwards) {
+        return createRandomPlayerInfos(1, numDefenders, numMidfielders, numForwards);
     }
 
     private static String generateRandomTeamName() {

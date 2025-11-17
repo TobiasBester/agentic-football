@@ -32,6 +32,10 @@ public class MatchPlayer implements PitchEntity, Comparable<MatchPlayer> {
         this.positionOnPitch = positionOnPitch;
     }
 
+    public void setPositionOnPitch(double x, double y) {
+        this.positionOnPitch = new Coordinate(x, y);
+    }
+
     @Override
     public Coordinate getPitchEntityCoordinate() {
         return positionOnPitch;
